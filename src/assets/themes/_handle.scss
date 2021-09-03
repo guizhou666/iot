@@ -1,0 +1,202 @@
+@import "@/assets/themes/_themes.scss";
+//此处用了sass的map遍历、函数、map存取、混合器等相关知识，
+//详细API参考https://www.sass.hk/docs/
+//遍历主题map
+@mixin themeify {
+    @each $theme-name,
+    $theme-map in $themes {
+        //!global 把局部变量强升为全局变量
+        $theme-map: $theme-map !global;
+        //这步是判断html的data-theme的属性值  #{}是sass的插值表达式
+        //& sass嵌套里的父容器标识   @content是混合器插槽，像vue的slot
+        [data-theme="#{$theme-name}"] & {
+            @content;
+        }
+    }
+}
+
+//声明一个根据Key获取颜色的function
+@function themed($key) {
+    @return map-get($theme-map, $key);
+}
+
+@mixin width($width) {
+    @include themeify {
+        width: themed(($width))
+    }
+}
+
+@mixin left($px) {
+    @include themeify {
+        left: themed(($px))
+    }
+}
+
+//暂时想到的常用的开发场景下面三种背景颜色、字体颜色、边框颜色  至于阴影什么之类的忽略了
+//获取背景颜色
+@mixin background_color($color) {
+    @include themeify {
+        background-color: themed($color);
+    }
+}
+
+//渐变色
+@mixin background_img($color) {
+  @include themeify {
+    background-image: themed($color) !important;
+  }
+}
+
+
+//获取字体颜色
+@mixin font_color($color) {
+    @include themeify {
+        color: themed($color);
+    }
+}
+
+//获取边框颜色
+@mixin border_color($color) {
+    @include themeify {
+        border-color: themed($color);
+    }
+}
+
+
+@mixin button_fs($fs) {
+    @include themeify {
+        font-size: themed($fs);
+    }
+}
+
+@mixin button_padding($padding) {
+    @include themeify {
+        padding: themed($padding);
+    }
+}
+
+@mixin border($param) {
+    @include themeify {
+        border: themed($param);
+    }
+}
+
+@mixin border_radius($param) {
+    @include themeify {
+        border-radius: themed($param);
+    }
+}
+
+@mixin box_shadow($param) {
+    @include themeify {
+        box-shadow: themed($param);
+    }
+}
+
+@mixin height($param) {
+    @include themeify {
+        height: themed($param);
+    }
+}
+
+@mixin padding($param) {
+    @include themeify {
+        padding: themed($param);
+    }
+}
+
+@mixin border_left($param) {
+    @include themeify {
+        border-left: themed($param);
+    }
+}
+
+@mixin border_bottom($param) {
+    @include themeify {
+        border-bottom: themed($param);
+    }
+}
+
+
+@mixin margin($param) {
+    @include themeify {
+        margin: themed($param);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+// 其他mixin
+@mixin textOverflow ($line: 2, $width: 100%, $display: -webkit-box) {
+    width: $width;
+    display: $display;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: $line;
+    word-wrap: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+}
+
+
+/*弹性盒子（传入null不设置该属性）*/
+@mixin flex( $justify: center, $align: center, $flex-wrap: nowrap ,$direction: row) {
+    display: flex;
+    @if ($direction!=null) {
+        flex-direction: $direction;
+    }
+    @if ($justify!=null) {
+        justify-content: $justify;
+    }
+    @if ($align!=null) {
+        align-items: $align;
+    }
+    @if ($flex-wrap != null) {
+        flex-wrap: $flex-wrap;
+    }
+}
+
+
+
+ 
+/*绝对定位  参数顺序：上右下左*/
+@mixin absolute($top:null,$right:null,$bottom:null,$left:null) {
+    position: absolute;
+    @if ($left!="" & & $left!=null) {
+      left: $left;
+    }
+    @if ($right!="" & & $right!=null) {
+      right: $right;
+    }
+    @if ($top!="" & & $top!=null) {
+      top: $top;
+    }
+    @if ($bottom!="" & & $bottom!=null) {
+      bottom: $bottom;
+    }
+  }
+   
+
+  /* 链接样式 */
+@mixin hoverStyle($style:(color:#d9fdff),$hoverStyle:(color:#306eff)) {
+    text-decoration: none;
+    @each $key, $value in $style {
+      #{$key}: #{$value};
+    }
+    @if ($hoverStyle!=null & & $hoverStyle!="") {
+      &:hover {
+        @each $key, $value in $hoverStyle {
+          #{$key}: #{$value};
+        }
+      }
+    }
+  }
+  

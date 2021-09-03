@@ -1,0 +1,257 @@
+//定义全局主题&颜色的map数组，鉴于V5只有白天和晚上的主题，此处仅定义这两种
+//切记 所有颜色一式两份儿，务必保证key值统一，key值可以自定义，注意避免$%_之类的，
+//与sass自有符号冲突，见文知意即可
+//另外如果基于其他UI框架，如本项目基于element-ui，则只需设置一套dark主题，
+//data-theme为dark时，样式引用dark
+//data-theme为其他值时，自然就采用了elementui的默认样式
+// background-color1: 按钮颜色
+$themes: (
+  default: (
+    primary_color:#2f75ee,//默认颜色
+    primary_hover_color:#4989f7,//默认hover颜色
+
+
+    sidebar_menu_width: 280px, //侧边菜单宽度
+    sidebar_menu_background: #282d31, //侧边菜单宽度
+    sidebar_menu_select_background: #1c2125, //侧边菜单宽度
+    sidebar_menu_item_color: #9599a2, 
+    sidebar_menu_item_active_background: #000, 
+    sidebar_menu_item_active_color: #fff,
+    sidebar_menu_item_active_borderleft: 4px solid #00a4ff,
+
+
+    content_width: calc(100vw - 280px), //内容区宽度
+    content_padding: 20px, //内容区宽度
+    content_background: #f0f3fa, //内容区宽度
+    content_border_radius: 10px,
+
+    navbar_background: #fff,
+    navbar_background_logo: #2f75ee,
+    navbar_color: #666,
+    
+    breadcremb_background: transparent,
+
+    page-title_color:#333,
+    filterform_background: #fff,
+    filterform_border_radius: 10px,
+    filterform_border: none,
+    filterform_box_shadow: 0 2px 4px #eceff6,
+    filterform_margin_bottom: 0 0 14px 0,
+
+    link_primary_color: #397ff9,
+    link_primary_hover_color: #0154e4,
+    link_danger_color: #dc2a3a,
+    link_danger_hover_color: #bf0202,
+
+
+    treetable_header_background: #f6f7fb,
+    treetable_header_height: 50px,
+    treetable_header_color: #424345,
+
+
+    font_color1: #f5f6fa,
+    font_color2: #f2f2f2,
+    font_color3: #606266,
+    font_color4: #303133,
+    background_color1: #409eff,
+    background_color2: rgb(87, 87, 226),
+    table_head_background: #409eff,
+    border_color1: rgb(231, 181, 181),
+    border_color2: rgb(9, 255, 0),
+    button_fs: 14px, //按钮 字体大小
+    button_padding: 10px 20px, //按钮 边距
+    button_bg_default: #2f75ee
+  ),
+  'htsy': (
+    primary_color:#1e77d1,//默认颜色
+    primary_hover_color:#3f90e1,//默认hover颜色
+
+
+    sidebar_menu_width: 280px, //侧边菜单宽度
+    sidebar_menu_background: #282d31, //侧边菜单宽度
+    sidebar_menu_select_background: #1c2125, //侧边菜单宽度
+    sidebar_menu_item_color: #9599a2, 
+    sidebar_menu_item_active_background: #fff, 
+    sidebar_menu_item_active_color: #000,
+    sidebar_menu_item_active_borderleft: 2px solid #000,
+
+    headnavbar_menu_height: 280px, //顶部菜单宽度
+    headnavbar_menu_background: #282d31, //顶部菜单宽度
+    headnavbar_menu_select_background: #1c2125, //顶部菜单宽度
+
+
+    content_width: calc(100vw - 280px), //内容区宽度
+    content_padding:0, //内容区宽度
+    content_background: #fff, //内容区宽度
+    content_border_radius: 10px,
+
+    navbar_background: #1e77d1,
+    navbar_background_logo: #1e77d1,
+    navbar_hover_background: #74a0ea,
+    navbar_color: #fff,
+
+    breadcremb_background: #f0f3f8,
+    page-title_color:#333,
+
+    filterform_background: #fff,
+    filterform_border_radius: 0,
+    filterform_border: none,
+    filterform_border_bottom: 1px solid #ececec,
+    filterform_box_shadow: none,
+    filterform_margin_bottom: 14px,
+
+    link_primary_color: #397ff9,
+    link_primary_hover_color: #0154e4,
+    link_danger_color: #dc2a3a,
+    link_danger_hover_color: #bf0202,
+
+
+    treetable_header_background: #f6f7fb,
+    treetable_header_height: 50px,
+    treetable_header_color: #424345,
+
+
+
+
+
+    font_color1: rgb(226, 222, 222),
+    font_color2: rgb(255, 255, 255),
+    font_color3: #606266,
+    font_color4: #086951,
+    background_color1: rgb(87, 87, 226),
+    background_color2: rgb(255, 0, 21),
+    border_color1: rgb(9, 255, 0),
+    border_color2: rgb(231, 181, 181),
+  ),
+  yyzc: (
+    primary_color:#1e77d1,//默认颜色
+    primary_hover_color:#3f90e1,//默认hover颜色
+
+
+    sidebar_menu_width: 0, //侧边菜单宽度
+    sidebar_menu_background: #282d31, //侧边菜单宽度
+    sidebar_menu_select_background: #1c2125, //侧边菜单宽度
+
+
+    headnavbar_menu_height: 280px, //顶部菜单宽度
+    headnavbar_menu_background: #282d31, //顶部菜单宽度
+    headnavbar_menu_select_background: #1c2125, //顶部菜单宽度
+
+
+    content_width: 100vw, //内容区宽度
+    content_padding: 20px 200px, //内容区宽度
+    content_background: #f0f3fa, //内容区宽度
+    content_border_radius:  0 0 10px 10px,
+
+    navbar_background: #1e77d1,
+    navbar_background_logo: #1e77d1,
+    navbar_hover_background: #74a0ea,
+    navbar_color: #fff,
+    navbar_submenu_color: #333,
+
+    breadcremb_padding: 0 200px,
+    breadcremb_background: transparent,
+    page-title_color:#333,
+
+    filterform_background: #fff,
+    filterform_border_radius: 10px  10px 0 0,
+    filterform_border: none,
+    filterform_border_bottom:1px solid #eaeaea,
+    filterform_box_shadow: none,
+    filterform_margin_bottom:0,
+
+    link_primary_color: #397ff9,
+    link_primary_hover_color: #0154e4,
+    link_danger_color: #dc2a3a,
+    link_danger_hover_color: #bf0202,
+
+
+    treetable_header_background: #f6f7fb,
+    treetable_header_height: 50px,
+    treetable_header_color: #424345,
+
+
+
+
+
+    font_color1: rgb(226, 222, 222),
+    font_color2: rgb(255, 255, 255),
+    background_color1: rgb(87, 87, 226),
+    background_color2: rgb(255, 0, 21),
+    border_color1: rgb(9, 255, 0),
+    border_color2: rgb(231, 181, 181),
+  ),
+  'csfg': (
+    primary_color:#02a7f0,
+    //默认颜色
+    primary_hover_color:#02a7f0,
+    //默认hover颜色
+
+
+    sidebar_menu_width: 280px,
+    //侧边菜单宽度
+    sidebar_menu_background: #282d31,
+    //侧边菜单宽度
+    sidebar_menu_select_background: #1c2125,
+    //侧边菜单宽度
+    sidebar_menu_item_color: #ffffff,
+    sidebar_menu_item_active_background: #252121,
+    sidebar_menu_item_active_color: #ffffff,
+    sidebar_menu_item_active_borderleft: 2px solid #000,
+
+    headnavbar_menu_height: 280px,
+    //顶部菜单宽度
+    headnavbar_menu_background: #282d31,
+    //顶部菜单宽度
+    headnavbar_menu_select_background: #1c2125,
+    //顶部菜单宽度
+
+
+    content_width: calc(100vw - 280px),
+    //内容区宽度
+    content_padding:0,
+    //内容区宽度
+    content_background: #fff,
+    //内容区宽度
+
+    navbar_background: transparent,
+    navbar_backgroundImg:linear-gradient(to right, #485aff, #259cfe),
+    navbar_background_logo: transparent,
+    navbar_hover_background: #74a0ea,
+    navbar_color: #fff,
+    content_border_radius: 10px,
+
+    breadcremb_background: transparent,
+    page-title_color:#ffffff,
+
+    filterform_background: #fff,
+    filterform_border_radius: 0,
+    filterform_border: none,
+    filterform_border_bottom: 1px solid #ececec,
+    filterform_box_shadow: none,
+    filterform_margin_bottom: 0 0 14px 0,
+
+    link_primary_color: #02a7f0,
+    link_primary_hover_color: #0154e4,
+    link_danger_color: #dc2a3a,
+    link_danger_hover_color: #bf0202,
+
+
+    treetable_header_background: #f6f7fb,
+    treetable_header_height: 50px,
+    treetable_header_color: #424345,
+
+
+
+
+
+    font_color1: rgb(226, 222, 222),
+    font_color2: rgb(255, 255, 255),
+    font_color3: #606266,
+    font_color4: #086951,
+    background_color1: rgb(87, 87, 226),
+    background_color2: rgb(255, 0, 21),
+    border_color1: rgb(9, 255, 0),
+    border_color2: rgb(231, 181, 181),
+  )
+);

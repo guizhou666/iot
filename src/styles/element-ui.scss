@@ -1,0 +1,174 @@
+// cover some element-ui styles
+.el-breadcrumb__inner,
+.el-breadcrumb__inner a {
+    font-weight: 400 !important;
+}
+
+.el-upload {
+    input[type="file"] {
+        display: none !important;
+    }
+}
+
+.el-upload__input {
+    display: none;
+}
+
+// to fixed https://github.com/ElemeFE/element/issues/2461
+.el-dialog {
+    transform: none;
+    left: 0;
+    position: relative;
+    margin: 0 auto;
+}
+
+// refine element ui upload
+.upload-container {
+    .el-upload {
+        width: 100%;
+        .el-upload-dragger {
+            width: 100%;
+            height: 200px;
+        }
+    }
+}
+
+// dropdown
+.el-dropdown-menu {
+    a {
+        display: block
+    }
+}
+
+// to fix el-date-picker css style
+.el-range-separator {
+    box-sizing: content-box;
+}
+
+.el-dialog__header {
+    border: 1px solid #eaeaea;
+}
+
+.el-drawer__body {
+    padding: 20px;
+    padding: 24px;
+    font-size: 14px;
+    line-height: 1.5;
+    word-wrap: break-word;
+    overflow: auto;
+}
+
+
+.el-textarea .el-input__count {
+    color: #909399;
+    background: #FFFFFF;
+    position: absolute;
+    font-size: 12px;
+    height: 12px;
+    line-height: 12px;
+    bottom: 3px;
+    right: 10px;
+}
+.el-textarea__inner{
+    // 解决textarea,中英文混合换行的问题
+    word-break: break-all;
+    word-wrap: break-word;
+}
+
+// .el-textarea {
+//     padding: 5px 15px 10px 15px;
+//     textarea {
+//         word-wrap: break-all;
+//     }
+// }
+
+
+
+.el-button {
+    @include button_fs('button_fs'); // 按钮字体
+    @include button_padding('button_padding'); // 按钮边距
+
+
+    &.el-button--default {
+        // @include button_bg('button_bg'); // 按钮边距
+    }
+    &.el-button--primary {
+        @include background_color('primary_color'); // 按钮背景
+        @include border_color('primary_color'); // 按钮背景
+        &:hover {
+            @include background_color('primary_hover_color'); // 按钮背景
+            @include border_color('primary_hover_color'); // 按钮背景
+        }
+        &.is-disabled {
+            background-color: #bdd5ff;         
+            border-color: #bdd5ff;     
+            &:hover {
+                background-color: #bdd5ff;         
+                border-color: #bdd5ff;     
+            }    
+        }
+    }
+}
+
+.el-link{
+    &.el-link--primary {
+         @include font_color('link_primary_color');
+        .el-link--inner {
+            @include font_color('link_primary_color');
+            &:hover {
+                @include font_color('link_primary_hover_color');
+            }
+        }
+    }
+    &.el-link--danger {
+        .el-link--inner {
+            @include font_color('link_danger_color');
+            &:hover {
+                @include font_color('link_danger_hover_color');
+            }
+        }
+    }
+} 
+
+
+// 分页
+.el-pagination.is-background .el-pager li:not(.disabled).active {
+    @include background_color('primary_color')
+}
+
+
+.el-input--small {
+    .el-input__inner {
+        height: 34px;
+        line-height: 34px;
+    }
+}
+
+
+
+
+.cascader-department .el-cascader-panel {
+    .el-cascader-menu {
+      max-width: 200px;
+    }
+  }
+  // textarea 框提示语字体统一
+  .el-textarea__inner {
+    font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial,
+      sans-serif;
+  }
+
+  //   select框内字体长度太长
+  .el-select__tags {
+
+    .el-select__tags-text {
+          display: inline-block;
+          max-width: 135px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+    .el-tag__close.el-icon-close {
+      top: -7px;
+    }
+  }
